@@ -13,7 +13,7 @@ class mysqlo{
             die('Ошибка подключения Базы Данных: ' . $exception->getMessage()); // Пишем её
         }
     }
-    function query(string $sql, array $parameters, bool $all){ // Функция выполнения запроса к MySql
+    function query(string $sql, array $parameters, bool $all = false){ // Функция выполнения запроса к MySql
         try {
             $statement = $this->connect->prepare($sql); // Подготавлеваем запрос
             $newParameters = [];
