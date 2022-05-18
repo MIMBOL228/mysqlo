@@ -1,5 +1,5 @@
 <?php
-class Mysqlo{
+class Mysqlo {
     
     public $connect; // Переменная объекта соединения
     
