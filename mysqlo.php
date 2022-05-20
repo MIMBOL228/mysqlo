@@ -26,9 +26,9 @@ class Mysqlo {
                 $parameters
             );
             $statement->execute($newParameters); // Выполняем запрос
-            if($all){ // Если передано, что передавать все полученные данные, то
+            if($all) { // Если передано, что передавать все полученные данные, то
                 return $statement->fetchAll(PDO::FETCH_ASSOC); // Передаём все даннные
-            }else{ // Иначе
+            } else { // Иначе
                 return $statement->fetch(PDO::FETCH_ASSOC); // Передаём первые попавшиеся
             }
         } catch (Exception $exception) { // При ошибке
@@ -41,7 +41,7 @@ class Mysqlo {
             foreach ($query_list as $sql => $parameters) { // Проходимся по каждому запросу
                 $statement = $this->connect->prepare($sql); // Подготавлеваем запрос
                 $newParameters = array_combine(
-                    array_map(function($k){ 
+                    array_map(function($k) { 
                         return ':'.$k; 
                     }, array_keys($parameters)), 
                     $parameters
